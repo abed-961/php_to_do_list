@@ -2,8 +2,8 @@
 // Example session variables (set these properly in your real login system)
 if (session_status() == PHP_SESSION_NONE)
     session_start();
-// $isLoggedIn = isset($_SESSION['user']);  // true if logged in
-// $userRole = $isLoggedIn ? $_SESSION['user']['role'] : null;  // e.g. 'admin' or 'user'
+
+$userRole = isset($_SESSION["loggedIn"]) ? $_SESSION['user']['role'] : null;  // e.g. 'admin' or 'user'
 
 require_once "bootstrap_links.php";
 
@@ -25,13 +25,13 @@ require_once "bootstrap_links.php";
         <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
             <ul class="navbar-nav align-items-center gap-2">
 
-                <?php if ($isLoggedIn && $userRole === 'admin'): ?>
+                <?php if (isset($_SESSION["loggedIn"]) && $userRole === 'admin'): ?>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="/admin.php">Admin</a>
                     </li>
                 <?php endif; ?>
 
-                <?php if (!$isLoggedIn): ?>
+                <?php if (!isset($_SESSION["loggedIn"])): ?>
                     <li class="nav-item">
                         <a class="btn btn-light text-primary" href="/login.php">Login</a>
                     </li>

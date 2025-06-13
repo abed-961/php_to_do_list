@@ -55,6 +55,8 @@ require_once "../templates/bootstrap_links.php";
         </div>
 
     </div>
+    <!-- alert componnets -->
+    <?php require_once "../templates/alert.php" ?>
 
     <script>
         const input_name = document.getElementById("input_name");
