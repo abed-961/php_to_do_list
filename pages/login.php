@@ -48,7 +48,7 @@ require_once "../templates/bootstrap_links.php";
                     <input type="button" onclick="login_btn()" class="btn btn-primary w-100" value="login">
 
                     <div class="text-center mt-3">
-                        <small>Don't have an account? <a href="register.php">Register</a></small>
+                        <small>Don't have an account? <a href="./register.php">Register</a></small>
                     </div>
                 </form>
             </div>

@@ -32,10 +32,12 @@ require_once "bootstrap_links.php";
                 <?php endif; ?>
 
                 <?php if (!isset($_SESSION["loggedIn"])): ?>
-                    <li class="nav-item">
-                        <a class="btn btn-light text-primary" href="/login.php">Login</a>
-                    </li>
 
+                    <?php if (basename($_SERVER['REQUEST_URI']) !== "login.php"): ?>
+                        <li class="nav-item">
+                            <a class="btn btn-light text-primary" href="/login.php">Login</a>
+                        </li>
+                    <?php endif; ?>
                 <?php else: ?>
                     <li class="nav-item">
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#logoutModal">
@@ -51,7 +53,7 @@ require_once "bootstrap_links.php";
     </div>
 </nav>
 
-<!-- Logout Confirmation Modal
+<!-- Logout Confirmation Modal -->
 <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow">
@@ -65,8 +67,9 @@ require_once "bootstrap_links.php";
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancel</button>
-                <a href="/logout.php" class="btn btn-danger px-4">Logout</a>
+                <a onclick='window.location.href ="../actions/logout.php"' class="btn btn-danger px-4"
+                    data-bs-dismiss="modal">Logout</a>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
