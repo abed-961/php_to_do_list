@@ -17,7 +17,7 @@ require_once "../templates/bootstrap_links.php";
 
 <body>
     <?php require_once "../templates/nav_bar.php"; ?>
-    <div class="d-flex justify-content-center align-items-center h-100">
+    <div class="d-flex justify-content-center align-items-center h-75">
 
         <div style="width: 100%; max-width: 400px; ">
             <div class="card shadow p-4  circle-flip " style="width: 100%; max-width: 380px;">
@@ -57,7 +57,9 @@ require_once "../templates/bootstrap_links.php";
     </div>
     <!-- alert componnets -->
     <?php require_once "../templates/alert.php" ?>
-
+    <!-- footer componnets -->
+    <?php require_once "../templates/footer.php"; ?>
+    <!-- js check if the value are correct -->
     <script>
         const input_name = document.getElementById("input_name");
         const input_pass = document.getElementById("password");
