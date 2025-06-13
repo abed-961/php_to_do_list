@@ -12,4 +12,4 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$database", $username, $password);
 } catch (PDOException $error) {
     die("there are an error in server connection please try again later .");
-}
+} 
