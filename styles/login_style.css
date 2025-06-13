@@ -1,0 +1,15 @@
+.circle-flip::before {
+  content: "";
+  position: absolute;
+  width: 115%;
+  height: 90px;
+  border-radius: 10px;
+  background-color: blue;
+  z-index: -1;
+  transform: translateX(-50px) translateY(-50px);
+  animation: flip_cirlce 3s infinite linear;
+}
+
+.circle-flip {
+  box-shadow: 10px 10px 10px blue !important;
+}

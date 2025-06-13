@@ -2,17 +2,14 @@
 // Example session variables (set these properly in your real login system)
 if (session_status() == PHP_SESSION_NONE)
     session_start();
-$isLoggedIn = isset($_SESSION['user']);  // true if logged in
-$userRole = $isLoggedIn ? $_SESSION['user']['role'] : null;  // e.g. 'admin' or 'user'
+// $isLoggedIn = isset($_SESSION['user']);  // true if logged in
+// $userRole = $isLoggedIn ? $_SESSION['user']['role'] : null;  // e.g. 'admin' or 'user'
 
 require_once "bootstrap_links.php";
-?>
 
 
-<?php
-session_start();
-$isLoggedIn = isset($_SESSION['user']);
-$userRole = $isLoggedIn ? $_SESSION['user']['role'] : null;
+// $isLoggedIn = isset($_SESSION['user']);
+// $userRole = $isLoggedIn ? $_SESSION['user']['role'] : null;
 ?>
 
 <!-- Bootstrap 5 Navbar -->
