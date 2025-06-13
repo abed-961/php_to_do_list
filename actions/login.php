@@ -33,6 +33,9 @@ try {//starting the query
     return_error("server time out . \n try again later");
 }
 
+if (empty($user)) {
+    return_error("email or username   are incorrect");
+}
 
 if (!password_verify($password, $user["password"])) { // check if the password are correct 
     return_error("password incorrect");
@@ -41,6 +44,7 @@ if (!password_verify($password, $user["password"])) { // check if the password a
 
 $_SESSION["user"] = $user;
 $_SESSION["loggedIn"] = true;
+$_SESSION["success"] = "logged successfuly";
 
 header("Location: ../pages/dashboard.php"); // go to the main page
 exit();
