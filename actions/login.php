@@ -4,6 +4,7 @@ require "../templates/connection.php";
 
 function return_error($msg) // function to return error ;
 {
+    $_SESSION["login_info"] = ["input" => trim($_POST["input"]), "password" => trim($_POST["password"])];
     $_SESSION["error"] = $msg;
     header("Location: ../pages/login.php");
     exit();

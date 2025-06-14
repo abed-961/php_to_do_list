@@ -51,6 +51,12 @@ require_once "bootstrap_links.php";
                     <li class="nav-item">
                         <a class="btn btn-warning text-dark" href="../pages/register.php">Register</a>
                     </li>
+                <?php endif;
+                if (isset($_SESSION["loggedIn"])): ?>
+
+                    <li class="nav-item">
+                        <a href="../pages/dashboard.php" class="btn btn-secondary">Dashboard</a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </div>
