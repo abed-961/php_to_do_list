@@ -35,7 +35,7 @@ require_once "bootstrap_links.php";
 
                     <?php if (basename($_SERVER['REQUEST_URI']) !== "login.php"): ?>
                         <li class="nav-item">
-                            <a class="btn btn-light text-primary" href="/login.php">Login</a>
+                            <a class="btn btn-light text-primary" href="../pages/login.php">Login</a>
                         </li>
                     <?php endif; ?>
                 <?php else: ?>
@@ -44,10 +44,14 @@ require_once "bootstrap_links.php";
                             Logout
                         </button>
                     </li>
+                <?php endif;
+                if (basename($_SERVER["REQUEST_URI"]) !== "register.php"):
+                    ?>
+
+                    <li class="nav-item">
+                        <a class="btn btn-warning text-dark" href="../pages/register.php">Register</a>
+                    </li>
                 <?php endif; ?>
-                <li class="nav-item">
-                    <a class="btn btn-warning text-dark" href="/register.php">Register</a>
-                </li>
             </ul>
         </div>
     </div>
