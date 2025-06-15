@@ -3,6 +3,11 @@ if (!isset($_SESSION["user_tasks"])) {
     header("Location: ../actions/get_task.php");
     exit();
 }
+if (!isset($_SESSION["loggedIn"])) {
+    header("Location: ../pages/login.php");
+    exit();
+}
+
 $tasks = $_SESSION["user_tasks"];
 $user = $_SESSION["user"];
 ?>
@@ -19,6 +24,7 @@ $user = $_SESSION["user"];
             outline: none;
         }
     </style>
+    <?php require_once "../templates/bootstrap_links.php"; ?>
 </head>
 
 <body>
@@ -28,8 +34,13 @@ $user = $_SESSION["user"];
     <div class="container todo-container">
         <h3 class="text-center mb-4">Welcome, <strong><?= $user["username"] ?></strong> – Your Tasks</h3>
 
-        <div class="card">
-            <div class="card-body">
+        <div class="card ">
+            <div class="card-body" style="overflow-y:scroll ; height: 70vh;">
+                <!-- Button to trigger modal -->
+                <button type="button" class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#addTaskModal"
+                    style="position:sticky ; top : 0 ; left:40% ; z-index: 99;">
+                    Add New Task
+                </button>
                 <ul class="list-group">
 
                     <!-- Task 1 -->
@@ -89,11 +100,17 @@ $user = $_SESSION["user"];
     </div>
 
 
-    <!-- alert templates -->
-    <?php require_once "../templates/alert.php"; ?>
-    <!-- footer templates -->
-    <?php require_once "../templates/footer.php";
-    unset($_SESSION["user_tasks"]); ?>
+
+
+    <!-- task modal  -->
+    <?php require_once "../templates/task_modal.php";
+    // <!-- alert templates -->
+    require_once "../templates/alert.php";
+    // <!-- footer templates -->
+    require_once "../templates/footer.php";
+
+    unset($_SESSION["user_tasks"]);
+    ?>
 
 
 </body>

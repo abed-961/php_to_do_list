@@ -1,4 +1,4 @@
-<div style="position:absolute; right : 10px ; bottom : 20px; width: 30vw; z-index: 99;">
+<div style="position:fixed; right : 10px ; bottom : 20px; width: 30vw; z-index: 99;">
     <?php if (basename($_SERVER["REQUEST_URI"]) !== "login.php"): ?>
         <?php if (isset($_SESSION["success"])): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
