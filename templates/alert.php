@@ -1,3 +1,7 @@
+<?php if (basename($_SERVER["REQUEST_URI"]) === "alert.php") {
+    die("access denied");
+}
+?>
 <div style="position:fixed; right : 10px ; bottom : 20px; width: 30vw; z-index: 99;">
     <?php if (basename($_SERVER["REQUEST_URI"]) !== "login.php"): ?>
         <?php if (isset($_SESSION["success"])): ?>

@@ -1,3 +1,9 @@
+<?php if (basename($_SERVER["REQUEST_URI"]) === "task_modal.php") {
+    die("access denied");
+}
+?>
+
+
 <!-- Modal -->
 <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -31,5 +37,3 @@
         </form>
     </div>
 </div>
-
-
