@@ -1,3 +1,8 @@
+<?php if (basename($_SERVER["REQUEST_URI"]) === "delete_task.php") {
+    die("access denied");
+}
+?>
+
 <!-- confirm delete Task modal -->
 <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

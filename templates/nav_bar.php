@@ -1,4 +1,9 @@
 <?php
+
+if (basename($_SERVER["REQUEST_URI"]) === "nav_bar.php") {
+    die("access denied");
+}
+
 // Example session variables (set these properly in your real login system)
 if (session_status() == PHP_SESSION_NONE)
     session_start();

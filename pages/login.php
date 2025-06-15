@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION["loggedIn"])) {
+    header("Location: ../pages/dashboard.php");
+    exit();
+}
+
 require_once "../templates/bootstrap_links.php";
 $input = isset($_SESSION["login_info"]) ? $_SESSION["login_info"]["input"] : "";
 $password = isset($_SESSION["login_info"]) ? $_SESSION["login_info"]["password"] : "";

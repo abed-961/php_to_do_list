@@ -1,10 +1,11 @@
 <?php session_start();
-if (!isset($_SESSION["user_tasks"])) {
-    header("Location: ../actions/get_task.php");
-    exit();
-}
+
 if (!isset($_SESSION["loggedIn"])) {
     header("Location: ../pages/login.php");
+    exit();
+}
+if (!isset($_SESSION["user_tasks"])) {
+    header("Location: ../actions/get_task.php");
     exit();
 }
 

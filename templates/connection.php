@@ -1,4 +1,8 @@
 <?php
+if (basename($_SERVER["REQUEST_URI"]) === "connection.php") {
+    die("access denied");
+}
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
