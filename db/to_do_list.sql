@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 13, 2025 at 03:15 PM
+-- Generation Time: Jun 16, 2025 at 05:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,10 +31,15 @@ CREATE TABLE `todo_list` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `date_created` datetime DEFAULT current_timestamp(),
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
   `description` text DEFAULT NULL,
-  `is_deleted` tinyint(1) DEFAULT 0
+  `is_completed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `todo_list`
+--
+
 
 -- --------------------------------------------------------
 
@@ -43,17 +48,20 @@ CREATE TABLE `todo_list` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
   `age` int(11) DEFAULT NULL,
-  `countrie` varchar(100) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
   `password` varchar(64) NOT NULL,
-  `is_deleted` tinyint(1) DEFAULT 0,
-  `user_role` enum('admin','user') DEFAULT 'user'
+  `is_deleted` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+
 -- Indexes for dumped tables
 --
 
@@ -61,7 +69,7 @@ CREATE TABLE `users` (
 -- Indexes for table `todo_list`
 --
 ALTER TABLE `todo_list`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`,`title`,`user_id`);
 
 --
 -- Indexes for table `users`
@@ -79,13 +87,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `todo_list`
 --
 ALTER TABLE `todo_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
